@@ -1,0 +1,6 @@
+squeue
+nvidia -smi	
+
+run:
+conda activate cat
+CUDA_VISIBLE_DEVICES=5 nohup python train.py > train.log 2>&1 &
