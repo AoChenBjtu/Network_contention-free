@@ -17,6 +17,7 @@ METHOD_ORDER = [
     "ISTA",
     "AMP",
     "DNN (layer-wise training)",
+    "ResNet",
 ]
 
 LEGEND_LABELS = {
@@ -26,6 +27,7 @@ LEGEND_LABELS = {
     "AMP": "AMP",
     "DNN (end-to-end training)": "DNN (end-to-end training)",
     "DNN (layer-wise training)": "DNN",
+    "ResNet": "ResNet",
 }
 
 METHOD_ALIASES = {
@@ -37,22 +39,22 @@ STYLES = {
     "LISTA": {
         "color": "#1f77b4",
         "linestyle": "-",
-        "marker": "*",
+        "marker": "s",
     },
     "LAMP": {
         "color": "#1f77b4",
         "linestyle": "-",
-        "marker": "v",
+        "marker": "o",
     },
     "ISTA": {
         "color": "#2e8b57",
         "linestyle": "--",
-        "marker": "*",
+        "marker": "v",
     },
     "AMP": {
         "color": "#2e8b57",
         "linestyle": "--",
-        "marker": "v",
+        "marker": "^",
     },
     "DNN (end-to-end training)": {
         "color": "#9b1c14",
@@ -62,7 +64,12 @@ STYLES = {
     "DNN (layer-wise training)": {
         "color": "#9b1c14",
         "linestyle": "--",
-        "marker": "*",
+        "marker": "D",
+    },
+    "ResNet": {
+        "color": "#9b1c14",
+        "linestyle": "--",
+        "marker": "P",
     },
 }
 
@@ -124,7 +131,7 @@ def draw_figure(data):
     all_snr = sorted({snr for points in data.values() for snr, _ in points})
     all_nmse = [nmse for points in data.values() for _, nmse in points]
     ax.set_xlabel("SNR (dB)")
-    ax.set_ylabel("NMSE")
+    ax.set_ylabel("NMSE (dB)")
     ax.set_xticks(all_snr)
     ax.set_xlim(min(all_snr), max(all_snr))
     ax.set_ylim(min(all_nmse) - 0.5, max(all_nmse) + 0.5)

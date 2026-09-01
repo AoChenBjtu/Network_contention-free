@@ -17,6 +17,7 @@ METHOD_ORDER = [
     "ISTA",
     "AMP",
     "DNN (Layer-wise training)",
+    "ResNet",
 ]
 
 LEGEND_LABELS = {
@@ -26,28 +27,29 @@ LEGEND_LABELS = {
     "AMP": "AMP",
     "DNN (End-to-end training)": "DNN (end-to-end training)",
     "DNN (Layer-wise training)": "DNN",
+    "ResNet": "ResNet",
 }
 
 STYLES = {
     "LISTA": {
         "color": "#1f77b4",
         "linestyle": "-",
-        "marker": "*",
+        "marker": "s",
     },
     "LAMP": {
         "color": "#1f77b4",
         "linestyle": "-",
-        "marker": "v",
+        "marker": "o",
     },
     "ISTA": {
         "color": "#2e8b57",
         "linestyle": "--",
-        "marker": "*",
+        "marker": "v",
     },
     "AMP": {
         "color": "#2e8b57",
         "linestyle": "--",
-        "marker": "v",
+        "marker": "^",
     },
     "DNN (End-to-end training)": {
         "color": "#9b1c14",
@@ -57,7 +59,12 @@ STYLES = {
     "DNN (Layer-wise training)": {
         "color": "#9b1c14",
         "linestyle": "--",
-        "marker": "*",
+        "marker": "D",
+    },
+    "ResNet": {
+        "color": "#9b1c14",
+        "linestyle": "--",
+        "marker": "P",
     },
 }
 
@@ -119,7 +126,7 @@ def draw_figure(data):
     all_layers = sorted({layer for points in data.values() for layer, _ in points})
     all_nmse = [nmse for points in data.values() for _, nmse in points]
     ax.set_xlabel("Number of layers / iterations")
-    ax.set_ylabel("NMSE")
+    ax.set_ylabel("NMSE (dB)")
     ax.set_xticks(all_layers)
     ax.set_xlim(min(all_layers), max(all_layers))
     ax.set_ylim(min(all_nmse) - 0.5, max(all_nmse) + 0.5)
