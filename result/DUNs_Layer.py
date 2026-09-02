@@ -32,37 +32,37 @@ LEGEND_LABELS = {
 
 STYLES = {
     "LISTA": {
-        "color": "#1f77b4",
+        "color": "#9b1c14",
         "linestyle": "-",
         "marker": "s",
     },
     "LAMP": {
-        "color": "#1f77b4",
+        "color": "#9b1c14",
         "linestyle": "-",
-        "marker": "o",
+        "marker": "D",
     },
     "ISTA": {
         "color": "#2e8b57",
-        "linestyle": "--",
+        "linestyle": "-.",
         "marker": "v",
     },
     "AMP": {
         "color": "#2e8b57",
-        "linestyle": "--",
+        "linestyle": "-.",
         "marker": "^",
     },
     "DNN (End-to-end training)": {
-        "color": "#9b1c14",
+        "color": "#1f77b4",
         "linestyle": "--",
         "marker": "v",
     },
     "DNN (Layer-wise training)": {
-        "color": "#9b1c14",
+        "color": "#1f77b4",
         "linestyle": "--",
-        "marker": "D",
+        "marker": "o",
     },
     "ResNet": {
-        "color": "#9b1c14",
+        "color": "#1f77b4",
         "linestyle": "--",
         "marker": "P",
     },
